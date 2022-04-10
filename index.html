@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width", initial-scale=0.1">
+        <title>Base Apparel coming soon page-Frontend Mentor by Smilika</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="main">
+            <div class="left-side">
+                <img src="logo.svg" alt="company logo" id="logo">
+                <div class="text-part">
+                    <h1>WE'RE<br><span>COMING<br>SOON</span></h1>
+                    <p>
+                        Hello fellow shoppers! We're currently building our new<br>
+                        fashion store. Add your email below to stay up-to-date with<br>
+                        announcements and our launch deals.
+                    </p>
+                    <form id="form">
+                        <div class="input">
+                            <input id="email" placeholder="Email Address" id="mail" name="mail">
+                            <img src="icon-error.svg" alt="error-icon" class="error-icon">
+                        </div>
+                        <button ><img src="icon-arrow.svg" alt="right arrow"></button>
+                        <small>Please provide a valid email</small>
+                      </form>
+                </div>
+            </div>
+            <img src="hero-desktop.jpg" alt="lady img" id="lady">
+        </div>
+        <script>
+            const form=document.getElementById("form");
+            const email=document.getElementById("email");
+
+            form.addEventListener('submit',e=>{
+                e.preventDefault();
+                const emailval=email.value;
+
+                if(!isEmailAddress(emailval)){
+                    form.classList.add('error');
+                    form.classList.remove('success');
+                }else{
+                    form.classList.remove('error');
+                    form.classList.add('success');
+                    document.body.innerHTML='Thankyou';
+                }
+            });
+            function isEmailAddress(email) {
+                var pattern =/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                return pattern.test(email);  // returns a boolean 
+                }
+        </script>
+    </body>
+</html>
